@@ -1,0 +1,33 @@
+<body>
+  <div class="welcome-message">
+
+    <div class="col" *ngFor='let name of names; let i = index' (click)='removeName()'>
+
+
+      <h1>Welcome back {{name}}!</h1>
+    </div>
+
+    <input type="button" value="LogOut" routerLink=''>
+    <input type="button" value="Library" routerLink='../library'>
+  </div>
+
+  <div class="book-list">
+
+    <p>Here is your current book list. it contains {{BookCount}} book to read.</p>
+    <div class="col" id="list" *ngFor='let book of books; let i = index, let title of titles' (click)='removeBook(i)'>
+
+      {{book}}
+
+    </div>
+
+  </div>
+  <br>
+  <div class="form1">
+    <form>
+      <input type="text" placeholder="Title" name="book" [(ngModel)]='book'>
+      <br>
+      <input type="submit" (click)='addBook()'>
+    </form>
+  </div>
+
+</body>
